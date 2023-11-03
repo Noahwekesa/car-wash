@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <h2>Login</h2>
+</div>
+    <div class="card-deck">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'image/carwash3.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+
+          </div>
+        </div>
+        <div class="card">
+    
+          <div class="card-body">
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+        
+          <div class="mb-3">
+            <input type="text" class="form-control" name="email", placeholder="Enter your Email" required>
+            
+          </div><br/>
+          <div class="mb-3">
+            <input type="password" class="form-control" name="password", placeholder="Password" required>
+          </div>
+          <br/>
+          <button type="submit" class="btn btn-secondary">Login</button>
+        
+        </form>
+          </div>
+        </div>
+      </div>
+
+    {% endblock  %}
