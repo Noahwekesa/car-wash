@@ -2,6 +2,38 @@
 {% load static %}
 {% block content %}
 <div class="col-md-6 offset-md-3">
-    <h2>Home Page</h2>
+    {% if user.is_authenticated %}
+    <small><strong>Logged in as: {{ user.username }} {{user.last_name}}</strong></small>
+    {% endif %}
+    <div class="jumbotron">
+        <h1>Welcome to the Car Wash Management System</h1>
+        <p>This is a  cash wash Management System Dashboard</p>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Company Annoucement</h5>
+                    <hr>
+                    <p class="card-text">inventore officiis, perferendis sunt amet temporibus reiciendis fugiat saepe?</p>
+                    <!-- You can include details like location, contact information, and a brief description. -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Links</h5>
+                    <ul>
+                        <li><a href="">Add Customers</a></li>
+                        <li><a href="">Book Service</a></li>
+                        <li><a href="{%  url 'customer-list' %}">Customer Records</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </div>
     {% endblock  %}
