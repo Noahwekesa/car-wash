@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'carwashmanagement',
     'django.contrib.humanize',
+    'widget_tweaks',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

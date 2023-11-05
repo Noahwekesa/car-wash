@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<h3>Customer Details</h3>
+<strong>Name:</strong>
+<p>{{customer.first_name}} {{customer.last_name}}</p> <br>
+<strong>Vehicle type</strong>
+<p>{{customer.typeofvehicle}}</p>
+<h3>Book Services For This Customer</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a href="{% url 'booking-table' %}" class="btn btn-secondary">Back</a> <input type="submit" value="Book Service" class="btn btn-success">
+</form>
+
+
+
+{% endblock %}

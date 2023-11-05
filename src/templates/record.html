@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
+
+{% load humanize %}
 {% block content %}
 
-
+<h3>Customer Details</h3>
 
 <div class="card">
   <div class="card-header"><strong>
+    Names:</strong>
     	{{ customer_record.first_name }} 
-		{{ customer_record.last_name }}</strong>
+		{{ customer_record.last_name }}
   </div>
   <div class="card-body">
 
@@ -20,19 +23,17 @@
 </p>
 
 <p class="card-text">
-<strong>Address: </strong>{{ customer_record.address }}</p>
+<strong>User Car type: </strong>{{ customer_record.typeofvehicle }}</p>
 
 <p class="card-text">
-<strong>City: </strong>{{ customer_record.city }}</p>
+<strong>Location </strong>{{ customer_record.location }}</p>
+
 
 <p class="card-text">
-<strong>State: </strong>{{ customer_record.state }}</p>
+<strong>Gender: </strong>{{ customer_record.gender }}</p>
 
 <p class="card-text">
-<strong>Zipcode: </strong>{{ customer_record.zipcode }}</p>
-
-<p class="card-text">
-<strong>Create At: </strong>{{ customer_record.created_at }}</p>
+<strong>Create At: </strong>{{ customer_record.timestamp|naturaltime }}</p>
 
 <p class="card-text">
 <strong>ID: </strong>{{ customer_record.id }}</p>
@@ -46,6 +47,8 @@
 
 <a href="{% url 'delete-record' customer_record.id %}" class="btn btn-danger">Delete</a>
 
-<a href="{% url 'update-record' customer_record.id %}" class="btn btn-secondary">Update Record</a> 
+<a href="{% url 'update-record' customer_record.id %}" class="btn btn-primary">Update Record</a> 
+
+<a href="{% url 'book-services-for-customer' customer_record.id %}" class="btn btn-info">Book Services For This Customer</a>
 
 {% endblock %}

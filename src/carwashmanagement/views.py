@@ -102,3 +102,30 @@ def update_record(request, pk):
 	else:
 		messages.success(request, "You Must Be Logged In...")
 		return redirect('home')
+	
+#book services for new customer
+def book_services(request):
+	return render(request, 'book_service_for_new_customer.html')
+
+#display booked services
+def booking_table(request):
+	bookings = Booking.objects.all()
+	context = {'bookings': bookings}
+	return render(request, 'booking_table.html', context)
+
+#existing
+def book_service_customer(request, customer_id):
+	customer = Customer.objects.get(pk=customer_id)
+	form = BookingForm()
+	
+	if request.method == 'POST':
+		form = BookingForm(request.POST)
+		if form.is_valid():
+			booking = form.save(commit=False)
+			booking.customer = customer
+			booking.save()
+			messages.success(request, "booking succesfully submitted")
+			return redirect('home')
+		else:
+			form = BookingForm()
+	return render(request, 'book_service_existing.html', {'customer': customer, 'form': form})

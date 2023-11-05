@@ -20,3 +20,21 @@ class Customer(models.Model):
 
 	def __str__(self):
 		return(f"{self.first_name} {self.last_name}")
+
+class Services(models.Model):
+	name = models.CharField(max_length=100)
+
+	def __str__(self):
+		return self.name
+	
+PAY_STATUS = (
+	('Not paid', 'Not paid'),
+	('Paid', 'Paid'),
+	)
+class Booking(models.Model):
+	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+	service_date = models.DateField(auto_now_add=True)
+	service_type = models.ForeignKey(Services, on_delete=models.CASCADE)
+	payment_status = models.CharField(max_length=20, choices=PAY_STATUS)
+	amount = models.CharField(max_length=50)
+	description = models.CharField(max_length=200)

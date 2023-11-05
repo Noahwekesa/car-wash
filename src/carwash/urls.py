@@ -29,4 +29,7 @@ urlpatterns = [
     path('detelete_record/<int:pk>', delete_record, name='delete-record'),
     path('add_customer', add_Customer, name='add-customer'),
     path('update_record/<int:pk>', update_record, name='update-record'),
+    path('book_services', book_services, name='book-services'),
+    path('booking_table', booking_table, name='booking-table'),
+    path('book-service/<int:customer_id>/', book_service_customer, name='book-services-for-customer'),
 ]

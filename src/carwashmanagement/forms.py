@@ -48,3 +48,11 @@ class AddCustomerForm(forms.ModelForm):
 	class Meta:
 		model = Customer
 		exclude = ("user",)
+
+from django import forms
+from .models import Booking 
+
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking 
+        fields = ('service_type', 'amount', 'description')

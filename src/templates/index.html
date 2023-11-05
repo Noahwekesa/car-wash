@@ -26,9 +26,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Quick Links</h5>
                     <ul>
-                        <li><a href="">Add Customers</a></li>
-                        <li><a href="">Book Service</a></li>
+                        <li><a href="{% url 'add-customer' %}">Add Customers</a></li>
+                        <li><a href="{% url 'book-services' %}">Book service for new customer</a></li>
                         <li><a href="{%  url 'customer-list' %}">Customer Records</a></li>
+                        <li><a href="{% url 'booking-table' %}">bookings</a></li>
                     </ul>
                 </div>
             </div>

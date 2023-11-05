@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h3>Customer Details</h3>
+  <!-- Display customer details here -->
+  <p><strong>Name:</strong> {{ customer.first_name }} {{ customer.last_name }}</p>
+  <p><strong>Email:</strong> {{ customer.email }}</p>
+  <!-- Add more customer details as needed -->
+
+  <h3>Book Services</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ booking_form.as_p }}
+    <button type="submit" class="btn btn-primary">Book Services</button>
+  </form>
+{% endblock %}
