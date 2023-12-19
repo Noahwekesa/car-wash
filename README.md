@@ -1,5 +1,6 @@
 # In-House Carwash System 
-
+Dashboard
+![alt text](https://github.com/Noahwekesa/car-wash/blob/main/screenshot/home.png)
 ## Overview
 This Django-based In-House Carwash System is designed to streamline the carwash management process for in-house use. It includes features such as customer management, service tracking, user authentication, and booking management.
 ## Features
